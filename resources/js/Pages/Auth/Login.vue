@@ -14,7 +14,7 @@ defineProps({
 });
 
 const form = useForm({
-    email: '',
+    student_id: '',
     password: '',
     remember: false,
 });
@@ -45,14 +45,15 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <JetLabel for="email" value="Email" />
+                <JetLabel for="student_id" value="Student ID" />
                 <JetInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
+                    id="student_id"
+                    v-model="form.student_id"
+                    type="number"
                     class="mt-1 block w-full"
                     required
                     autofocus
+                    autocomplete="student_id"
                 />
             </div>
 

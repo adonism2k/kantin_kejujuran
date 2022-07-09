@@ -9,8 +9,15 @@ import JetLabel from '@/Jetstream/Label.vue';
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
 
 const form = useForm({
+    student_id: '',
+    username: '',
     name: '',
     email: '',
+    phone: '',
+    street: '',
+    city: '',
+    state: '',
+    zip: '',
     password: '',
     password_confirmation: '',
     terms: false,
@@ -35,6 +42,19 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
+                <JetLabel for="student_id" value="Student ID" />
+                <JetInput
+                    id="student_id"
+                    v-model="form.student_id"
+                    type="number"
+                    class="mt-1 block w-full"
+                    required
+                    autofocus
+                    autocomplete="student_id"
+                />
+            </div>
+
+            <div class="mt-4">
                 <JetLabel for="name" value="Name" />
                 <JetInput
                     id="name"
@@ -42,19 +62,91 @@ const submit = () => {
                     type="text"
                     class="mt-1 block w-full"
                     required
-                    autofocus
                     autocomplete="name"
                 />
             </div>
 
             <div class="mt-4">
-                <JetLabel for="email" value="Email" />
+                <JetLabel for="username" value="Username" />
+                <JetInput
+                    id="username"
+                    v-model="form.username"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="username"
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="email" value="Email Address" />
                 <JetInput
                     id="email"
                     v-model="form.email"
                     type="email"
                     class="mt-1 block w-full"
                     required
+                    autocomplete="email"
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="phone" value="Phone Number" />
+                <JetInput
+                    id="phone"
+                    v-model="form.phone"
+                    type="number"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="tel"
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="street" value="Street Address" />
+                <JetInput
+                    id="street"
+                    v-model="form.street"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="street-address"
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="city" value="City" />
+                <JetInput
+                    id="city"
+                    v-model="form.city"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="city"
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="state" value="State" />
+                <JetInput
+                    id="state"
+                    v-model="form.state"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="state"
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="zip" value="Zip Code" />
+                <JetInput
+                    id="zip"
+                    v-model="form.zip"
+                    type="number"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="postal-code"
                 />
             </div>
 
