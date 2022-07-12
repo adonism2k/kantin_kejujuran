@@ -32,8 +32,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Nunito", ...defaultTheme.fontFamily.sans],
-            },
+                sans: ["Inter", ...defaultTheme.fontFamily.sans],
+            }
         },
     },
 
@@ -41,5 +41,6 @@ module.exports = {
         require("@tailwindcss/forms"),
         require("@tailwindcss/typography"),
         require("flowbite/plugin"),
+        require("@tailwindcss/aspect-ratio"),
     ],
 };

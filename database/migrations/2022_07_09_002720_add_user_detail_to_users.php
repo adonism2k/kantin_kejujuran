@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->integer("student_id")->unique()->after('id');
             $table->string("username")->unique()->after('name');
-            $table->integer("phone")->unique()->after('email');
+            $table->bigInteger("phone")->unique()->after('email');
             $table->string("street")->after('phone');
             $table->string("city")->after('street');
             $table->string("state")->after('city');

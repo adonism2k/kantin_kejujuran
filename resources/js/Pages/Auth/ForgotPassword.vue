@@ -1,5 +1,5 @@
 <script setup>
-import { Head, useForm } from '@inertiajs/inertia-vue3';
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue';
 import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue';
 import JetButton from '@/Jetstream/Button.vue';
@@ -21,15 +21,23 @@ const submit = () => {
 </script>
 
 <template>
+
     <Head title="Forgot Password" />
 
     <JetAuthenticationCard>
-        <template #logo>
+        <template #header>
             <JetAuthenticationCardLogo />
+            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Forgot your password?</h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Or you can
+                {{ ' ' }}
+                <Link :href="route('register')" class="font-medium text-indigo-600 hover:text-indigo-500 underline"> create a new account here!</Link>
+            </p>
         </template>
 
         <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+            No problem. Just let us know your email address and we will email you a password reset
+            link that will allow you to choose a new one.
         </div>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -41,14 +49,7 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <JetLabel for="email" value="Email" />
-                <JetInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
+                <JetInput id="email" v-model="form.email" type="email" class="mt-1 block w-full" required autofocus />
             </div>
 
             <div class="flex items-center justify-end mt-4">
